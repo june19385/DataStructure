@@ -8,7 +8,7 @@ public class DoublyLinkedList<E> {
 		private Node<E> next;
 		public Node(E e, Node<E> p,Node<E> n) {
 			element = e;
-			prev = n;
+			prev = p;
 			next = n;
 		}
 		public E getElement() {
