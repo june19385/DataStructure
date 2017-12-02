@@ -2,7 +2,7 @@ package Stacks;
 
 import LinkedLists.SinglyLinkedList;	//import LinkedLists.SinglyLinkedList in this project
 
-public class LinkedStack<E> implements Stacks<E> {
+public class LinkedStack<E> implements Stacks<E> {	//implements "Stacks.java" in my project
 	
 	private SinglyLinkedList<E> list;
 	

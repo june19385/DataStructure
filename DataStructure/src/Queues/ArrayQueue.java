@@ -1,17 +1,19 @@
 package Queues;
 
-public class ArrayQueue<E> implements Queues<E> {
+public class ArrayQueue<E> implements Queues<E> {	//implements "Queues.java" in my project
 	
 	private final static int CAPACITY = Integer.MAX_VALUE;
 	private E[] data;
-	private int size = 0;
-	private int front_index = 0;
+	private int size;
+	private int front_index;
 	
 	public ArrayQueue() {
 		this(CAPACITY);
 	}
 	public ArrayQueue(int capacity) {
 		data = (E[]) new Object[capacity];
+		size = 0;
+		front_index = 0;
 	}
 	
 	@Override

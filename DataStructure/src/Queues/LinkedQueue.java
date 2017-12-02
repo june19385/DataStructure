@@ -2,7 +2,7 @@ package Queues;
 
 import LinkedLists.SinglyLinkedList;	//import LinkedLists.SinglyLinkedList in this project
 
-public class LinkedQueue<E> implements Queues<E> {
+public class LinkedQueue<E> implements Queues<E> {	//implements "Queues.java" in my project
 
 	private SinglyLinkedList<E> list;
 	
