@@ -2,7 +2,7 @@ package Lists;
 
 import java.util.NoSuchElementException;
 
-public class ArrayLists<E> implements Lists<E> {	//implements "Lists.java" in my project
+public class ArrayLists<E> implements Lists<E>, Iterables<E> {	//implements "Lists.java" in my project
 	
 	private static final int CAPACITY = 16;
 	private E[] data;

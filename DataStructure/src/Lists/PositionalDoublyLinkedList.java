@@ -1,6 +1,8 @@
 package Lists;
 
-public class PositionalDoublyLinkedList<E> implements PositionalList<E> {
+import java.util.NoSuchElementException;
+
+public class PositionalDoublyLinkedList<E> implements PositionalList<E>, Iterables<E> {
 	
 	private static class Node<E> implements Positions<E>{
 		private E element;
@@ -138,5 +140,65 @@ public class PositionalDoublyLinkedList<E> implements PositionalList<E> {
 		node.setPrev(null);
 		return answer;
 	}
+	
+	private class PositionIterator implements Iterators<Positions<E>>{
+		
+		private Positions<E> cursor = first();
+		private Positions<E> recent = null;
 
+		@Override
+		public boolean hasNext() {
+			return (cursor!=null);
+		}
+
+		@Override
+		public Positions<E> next() throws NoSuchElementException {
+			if(cursor==null) throw new NoSuchElementException("nothing left");
+			recent = cursor;
+			cursor = after(cursor);
+			return recent;
+		}
+
+		@Override
+		public void remove() throws IllegalStateException {
+			if(recent==null) throw new IllegalStateException("nothing to remove");
+			PositionalDoublyLinkedList.this.remove(recent);
+			recent = null;
+		}
+		
+	}
+	
+	private class PositionIterable implements Iterables<Positions<E>>{
+
+		@Override
+		public Iterators<Positions<E>> iterators() {
+			return new PositionIterator();
+		}
+		
+	}
+	
+	public Iterables<Positions<E>> positions() {
+		return new PositionIterable();
+	}
+	
+	private class ElementIterator implements Iterators<E> {
+
+		Iterators<Positions<E>> posIterator = new PositionIterator();
+		
+		@Override
+		public boolean hasNext() {return posIterator.hasNext();}
+
+		@Override
+		public E next() throws NoSuchElementException {return posIterator.next().getElement();}
+
+		@Override
+		public void remove() throws IllegalStateException {posIterator.remove();}
+		
+	}
+
+	@Override
+	public Iterators<E> iterators() {return new ElementIterator();}
+	
 }
+
+
