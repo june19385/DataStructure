@@ -1,10 +1,9 @@
 package Lists;
 
 import java.util.Iterator;
-import java.lang.Iterable;
 import java.util.NoSuchElementException;
 
-public class ArrayLists<E> implements Lists<E>, Iterable<E> {	//implements "Lists.java" in my project
+public class ArrayLists<E> implements Lists<E> {	//implements "Lists.java" in my project
 	
 	private static final int CAPACITY = 16;
 	private E[] data;

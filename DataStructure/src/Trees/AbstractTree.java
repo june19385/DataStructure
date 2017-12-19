@@ -1,6 +1,12 @@
 package Trees;
 
+import java.util.Iterator;
+
+import Lists.ArrayLists;
+import Lists.Lists;
 import Lists.Positions;
+import Queues.LinkedQueue;
+import Queues.Queues;
 
 public abstract class AbstractTree<E> implements Tree<E> {
 
@@ -45,5 +51,60 @@ public abstract class AbstractTree<E> implements Tree<E> {
 			h = Math.max(h, 1+height(c));
 		}
 		return h;
+	}
+	
+	private class ElementIterator implements Iterator<E> {
+		
+		Iterator<Positions<E>> posIterator = positions().iterator();
+		
+		@Override
+		public boolean hasNext() {return posIterator.hasNext();}
+
+		@Override
+		public E next() {return posIterator.next().getElement();}
+		
+		public void remove() {posIterator.remove();}
+		
+	}
+	
+	private void preorderSubtree(Positions<E> p, Lists<Positions<E>> snapshot) {
+		snapshot.add(p);
+		for(Positions<E> c : children(p)) {
+			preorderSubtree(c,snapshot);
+		}
+	}
+	
+	public Iterable<Positions<E>> preorder() {
+		Lists<Positions<E>> snapshot = new ArrayLists<>();
+		if(!isEmpty()) preorderSubtree(root(),snapshot);
+		return snapshot;
+	}
+	
+	private void postorderSubtree(Positions<E> p, Lists<Positions<E>> snapshot) {
+		for(Positions<E> c : children(p)) {
+			preorderSubtree(c,snapshot);
+		}
+		snapshot.add(p);
+	}
+	
+	public Iterable<Positions<E>> postorder() {
+		Lists<Positions<E>> snapshot = new ArrayLists<>();
+		if(!isEmpty()) postorderSubtree(root(),snapshot);
+		return snapshot;
+	}
+	
+	public Iterable<Positions<E>> breathfirst() {
+		Lists<Positions<E>> snapshot = new ArrayLists<>();
+		if(!isEmpty()) {
+			Queues<Positions<E>> fringe = new LinkedQueue<>();
+			fringe.enqueue(root());
+			while(!fringe.isEmpty()) {
+				Positions<E> p = fringe.dequeue();
+				snapshot.add(p);
+				for(Positions<E> c : children(p))
+					fringe.enqueue(c);
+			}
+		}
+		return snapshot;
 	}
 }

@@ -14,6 +14,6 @@ public interface Tree<E> extends Iterable<E> {
 	boolean isRoot(Positions<E> p) throws IllegalArgumentException;
 	int size();
 	boolean isEmpty();
-	Iterator<E> iterators();
+	Iterator<E> iterator();
 	Iterable<Positions<E>> positions();
 }
