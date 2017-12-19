@@ -1,8 +1,10 @@
 package Lists;
 
+import java.util.Iterator;
+import java.lang.Iterable;
 import java.util.NoSuchElementException;
 
-public class PositionalDoublyLinkedList<E> implements PositionalList<E>, Iterables<E> {
+public class PositionalDoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
 	
 	private static class Node<E> implements Positions<E>{
 		private E element;
@@ -141,7 +143,7 @@ public class PositionalDoublyLinkedList<E> implements PositionalList<E>, Iterabl
 		return answer;
 	}
 	
-	private class PositionIterator implements Iterators<Positions<E>>{
+	private class PositionIterator implements Iterator<Positions<E>>{
 		
 		private Positions<E> cursor = first();
 		private Positions<E> recent = null;
@@ -168,22 +170,22 @@ public class PositionalDoublyLinkedList<E> implements PositionalList<E>, Iterabl
 		
 	}
 	
-	private class PositionIterable implements Iterables<Positions<E>>{
+	private class PositionIterable implements Iterable<Positions<E>>{
 
 		@Override
-		public Iterators<Positions<E>> iterators() {
+		public Iterator<Positions<E>> iterator() {
 			return new PositionIterator();
 		}
 		
 	}
 	
-	public Iterables<Positions<E>> positions() {
+	public Iterable<Positions<E>> positions() {
 		return new PositionIterable();
 	}
 	
-	private class ElementIterator implements Iterators<E> {
+	private class ElementIterator implements Iterator<E> {
 
-		Iterators<Positions<E>> posIterator = new PositionIterator();
+		Iterator<Positions<E>> posIterator = new PositionIterator();
 		
 		@Override
 		public boolean hasNext() {return posIterator.hasNext();}
@@ -196,8 +198,9 @@ public class PositionalDoublyLinkedList<E> implements PositionalList<E>, Iterabl
 		
 	}
 
+
 	@Override
-	public Iterators<E> iterators() {return new ElementIterator();}
+	public Iterator<E> iterator() {return new ElementIterator();}
 	
 }
 

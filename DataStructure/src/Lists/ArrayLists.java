@@ -1,8 +1,10 @@
 package Lists;
 
+import java.util.Iterator;
+import java.lang.Iterable;
 import java.util.NoSuchElementException;
 
-public class ArrayLists<E> implements Lists<E>, Iterables<E> {	//implements "Lists.java" in my project
+public class ArrayLists<E> implements Lists<E>, Iterable<E> {	//implements "Lists.java" in my project
 	
 	private static final int CAPACITY = 16;
 	private E[] data;
@@ -82,7 +84,7 @@ public class ArrayLists<E> implements Lists<E>, Iterables<E> {	//implements "Lis
 			throw new IndexOutOfBoundsException("Illegal index: "+i);
 	}
 	
-	private class ArrayIterator implements Iterators<E>{
+	private class ArrayIterator implements Iterator<E>{
 		private int j;
 		private boolean removable;
 		
@@ -110,8 +112,9 @@ public class ArrayLists<E> implements Lists<E>, Iterables<E> {	//implements "Lis
 		}
 
 	}
-	
-	public Iterators<E> iterators(){
+
+	@Override
+	public Iterator<E> iterator() {
 		return new ArrayIterator();
 	}
 
