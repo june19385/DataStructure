@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.lang.Iterable;
 import java.util.NoSuchElementException;
 
-public class PositionalDoublyLinkedList<E> implements PositionalList<E>, Iterable<E> {
+public class PositionalDoublyLinkedList<E> implements PositionalList<E> {
 	
 	private static class Node<E> implements Positions<E>{
 		private E element;
