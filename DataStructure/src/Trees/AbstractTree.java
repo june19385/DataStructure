@@ -90,6 +90,8 @@ public abstract class AbstractTree<E> implements Tree<E> {
 		
 	}
 	
+	public Iterator<E> iterator() {return new ElementIterator();}
+	
 	private void preorderSubtree(Positions<E> p, Lists<Positions<E>> snapshot) {
 		snapshot.add(p);
 		for(Positions<E> c : children(p)) {

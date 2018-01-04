@@ -29,7 +29,7 @@ import Lists.Positions;
 
 public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 
-	private static class Node<E> implements Positions<E>{
+	protected static class Node<E> implements Positions<E>{
 		private E element;
 		private Node<E> parent;
 		private Node<E> left;
@@ -66,7 +66,7 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 		size = 0;
 	}
 	
-	private Node<E> validate(Positions<E> p) throws IllegalArgumentException {
+	protected Node<E> validate(Positions<E> p) throws IllegalArgumentException {
 		if(!(p instanceof Node)) throw new IllegalArgumentException("Not valid position type");
 		Node<E> node = (Node<E>) p;
 		if(node.getParent()==node) throw new IllegalArgumentException("p is no longer in the tree");
@@ -170,17 +170,4 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 		node.setParent(node);
 		return temp;
 	}
-	
-	@Override
-	public Iterable<Positions<E>> positions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
