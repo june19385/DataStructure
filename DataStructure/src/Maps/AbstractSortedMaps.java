@@ -2,6 +2,8 @@ package Maps;
 
 import java.util.Comparator;
 
+import PriorityQueues.Entry;
+
 public abstract class AbstractSortedMaps<K, V> extends AbstractMaps<K, V> implements SortedMaps<K, V> {
 	private Comparator<K> comp;
 

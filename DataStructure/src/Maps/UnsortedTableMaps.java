@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import Lists.ArrayLists;
+import PriorityQueues.Entry;
 
 public class UnsortedTableMaps<K, V> extends AbstractMaps<K, V> {
 

@@ -27,6 +27,7 @@ package Maps;
 
 import Lists.ArrayLists;
 import Lists.Lists;
+import PriorityQueues.Entry;
 
 public class HashMultimaps<K, V> {
 	Maps<K,Lists<V>> map;

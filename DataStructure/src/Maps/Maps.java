@@ -23,6 +23,8 @@
 
 package Maps;
 
+import PriorityQueues.Entry;
+
 public interface Maps<K, V> {
 	int size();
 	boolean isEmpty();

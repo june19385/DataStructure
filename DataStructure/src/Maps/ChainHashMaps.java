@@ -24,6 +24,7 @@
 package Maps;
 
 import Lists.ArrayLists;
+import PriorityQueues.Entry;
 
 public class ChainHashMaps<K, V> extends AbstractHashMaps<K, V> {
 

@@ -24,6 +24,7 @@
 package Maps;
 
 import Lists.ArrayLists;
+import PriorityQueues.Entry;
 
 public class ProbeHashMaps<K, V> extends AbstractHashMaps<K, V> {
 	

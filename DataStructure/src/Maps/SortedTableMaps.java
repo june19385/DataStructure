@@ -26,6 +26,7 @@ package Maps;
 import java.util.Comparator;
 
 import Lists.ArrayLists;
+import PriorityQueues.Entry;
 
 public class SortedTableMaps<K, V> extends AbstractSortedMaps<K, V> {
 	

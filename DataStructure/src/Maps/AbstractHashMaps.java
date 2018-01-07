@@ -26,6 +26,7 @@ package Maps;
 import java.util.Random;
 
 import Lists.ArrayLists;
+import PriorityQueues.Entry;
 
 public abstract class AbstractHashMaps<K, V> extends AbstractMaps<K, V> {
 
@@ -92,12 +93,6 @@ public abstract class AbstractHashMaps<K, V> extends AbstractMaps<K, V> {
 	@Override
 	public V remove(K key) {
 		return bucketRemove(hashValue(key),key);
-	}
-
-	@Override
-	public Iterable<Entry<K, V>> entrySet() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

@@ -1,5 +1,7 @@
 package Maps;
 
+import PriorityQueues.Entry;
+
 public interface SortedMaps<K, V> extends Maps<K, V> {
 	Entry<K,V> firstEntry();
 	Entry<K,V> lastEntry();

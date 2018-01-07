@@ -25,6 +25,8 @@ package Maps;
 
 import java.util.Iterator;
 
+import PriorityQueues.Entry;
+
 public abstract class AbstractMaps<K, V> implements Maps<K, V> {
 
 	protected static class MapEntry<K,V> implements Entry<K,V> {
