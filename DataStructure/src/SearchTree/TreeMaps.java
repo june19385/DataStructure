@@ -28,7 +28,7 @@ import java.util.Comparator;
 import Lists.ArrayLists;
 import Lists.Positions;
 import Maps.AbstractSortedMaps;
-import Maps.Entry;
+import PriorityQueues.Entry;
 import Trees.LinkedBinaryTree;
 
 public class TreeMaps<K, V> extends AbstractSortedMaps<K, V> {

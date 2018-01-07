@@ -26,7 +26,7 @@ package SearchTree;
 import java.util.Comparator;
 
 import Lists.Positions;
-import Maps.Entry;
+import PriorityQueues.Entry;
 
 public class AVLTreeMaps<K, V> extends TreeMaps<K, V> {
 	
